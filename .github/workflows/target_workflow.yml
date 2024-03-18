@@ -7,6 +7,9 @@ on:
 jobs:
   trigger_workflow:
     runs-on: ubuntu-latest
+    env:
+       parameter1: ${{ github.event.client_payload.parameter1 }}
+       parameter2: ${{ github.event.client_payload.parameter2 }}
 
     steps:
       - name: Echo workflow name
@@ -14,4 +17,6 @@ jobs:
           echo "This is target workflow"
           echo""
           echo "This is triggered by Source workflow...."
-          sleep 120  
+          echo $parameter1
+          echo $parameter2
+          sleep 10  
