@@ -5,12 +5,14 @@ on:
    
     
 jobs:
-  trigger_workflow:
+  build:
     runs-on: ubuntu-latest
     env:
        parameter1: ${{ github.event.client_payload.parameter1 }}
        parameter2: ${{ github.event.client_payload.parameter2 }}
-
+    
+  trigger_workflow:
+    runs-on: ubuntu-latest
     steps:
       - name: Echo workflow name
         run: |
