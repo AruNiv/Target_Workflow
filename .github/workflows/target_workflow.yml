@@ -1,8 +1,7 @@
 name: My Target Workflow
 
 on:
-  workflow_dispatch:
-   
+  workflow_dispatch:   
     
 jobs:
   build:
@@ -10,7 +9,13 @@ jobs:
     env:
        parameter1: ${{ github.event.client_payload.parameter1 }}
        parameter2: ${{ github.event.client_payload.parameter2 }}
-    
+    steps:
+      - uses: actions/checkout@v3 
+      - name: Print parameters
+        run: |
+          echo $parameter1
+          echo $parameter2
+      
   trigger_workflow:
     runs-on: ubuntu-latest
     steps:
@@ -19,6 +24,4 @@ jobs:
           echo "This is target workflow"
           echo""
           echo "This is triggered by Source workflow...."
-          echo $parameter1
-          echo $parameter2
           sleep 10  
