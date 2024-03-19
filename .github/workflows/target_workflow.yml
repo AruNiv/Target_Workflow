@@ -4,17 +4,6 @@ on:
   workflow_dispatch:   
     
 jobs:
-  build:
-    runs-on: ubuntu-latest
-    env:
-       parameter1: ${{ github.event.client_payload.parameter1 }}
-       parameter2: ${{ github.event.client_payload.parameter2 }}
-    steps:
-      - uses: actions/checkout@v3 
-      - name: Print parameters
-        run: |
-          echo $parameter1
-          echo $parameter2
       
   trigger_workflow:
     runs-on: ubuntu-latest
